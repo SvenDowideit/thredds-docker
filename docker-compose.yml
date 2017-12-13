@@ -16,12 +16,14 @@ services:
       - "8443:8443"
     container_name: thredds
     volumes:
-      - /path/to/your/tomcat/logs/:/usr/local/tomcat/logs/
-      - /path/to/your/thredds/logs/:/usr/local/tomcat/content/thredds/logs/
-      - /path/to/your/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-      - /path/to/your/thredds/directory:/usr/local/tomcat/content/thredds
-      - /path/to/your/data/directory1:/path/to/your/data/directory1
-      - /path/to/your/data/directory2:/path/to/your/data/directory2
+      - /home/debian/src/thredds-docker/tomcat/logs/:/usr/local/tomcat/logs/
+      - /home/debian/src/thredds-docker/thredds/logs/:/usr/local/tomcat/content/thredds/logs/
+        #      - /home/debian/src/thredds-docker/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - /home/debian/src/thredds-docker/files/catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
+      - /home/debian/src/thredds-docker/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
+      - /home/debian/src/thredds-docker/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
+      - /home/debian/src/thredds-docker/thredds:/usr/local/tomcat/content/thredds
+      - /home/debian/src/thredds-docker/data/fx3:/usr/local/tomcat/content/thredds/public/fx3
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
 
@@ -35,10 +37,10 @@ services:
     image: unidata/tdm-docker:4.6
     container_name: tdm
     volumes:
-      - /path/to/your/thredds/directory:/usr/local/tomcat/content/thredds
-      - /path/to/your/data/directory1:/path/to/your/data/directory1
+      - /home/debian/src/thredds-docker/thredds/directory:/usr/local/tomcat/content/thredds
+      - /home/debian/src/thredds-docker/data/tdm:/home/debian/src/thredds-docker/data/tdm
       # TDM logging non-configurable until 5.0 so you'll need tdm.sh and
       # tdm.jar if you want to log outside the container :-(
-      - /path/to/your/tdm/logs:/usr/local/tomcat/content/tdm/
+      - /home/debian/src/thredds-docker/tdm/logs:/usr/local/tomcat/content/tdm/
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
