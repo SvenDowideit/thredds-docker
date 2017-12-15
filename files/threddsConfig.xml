@@ -193,6 +193,7 @@
     <allowRemote>false</allowRemote>
     <scour>15 min</scour>
     <maxAge>30 min</maxAge>
+    <dir>/tmp</dir>
   </WCS>
 
   <WMS>
@@ -200,6 +201,7 @@
     <allowRemote>false</allowRemote>
     <maxImageWidth>2048</maxImageWidth>
     <maxImageHeight>2048</maxImageHeight>
+    <dir>/tmp</dir>
   </WMS>
 
   <NCISO>
