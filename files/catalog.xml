@@ -21,10 +21,10 @@
   </service>
 
   <datasetRoot path="test" location="content/testdata/" />
-  <datasetRoot path="fx3" location="content/fx3/" />
+  <datasetRoot path="sven" location="content/sven/" />
 
-  <dataset name="fx3" ID="fx3Dataset"
-	  urlPath="fx3/gbr4_rivers_simple_2017-10.nc">
+  <dataset name="sven" ID="svenDataset"
+	  urlPath="sven/gbr4_rivers_simple_2017-10.nc">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
