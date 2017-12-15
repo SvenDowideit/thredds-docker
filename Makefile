@@ -7,5 +7,8 @@ run:
 run5:
 	VERSION=5.0-SNAPSHOT docker-compose up thredds-production
 
+dev:
+	VERSION=dev docker-compose up thredds-production
+
 shell:
 	docker exec -it thredds bash
