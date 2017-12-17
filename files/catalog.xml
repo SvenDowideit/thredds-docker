@@ -20,9 +20,19 @@
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
   </service>
 
-  <datasetRoot path="test" location="content/testdata/" />
-  <datasetRoot path="sven" location="content/sven/" />
+   <datasetScan name="eReefs GBR1 Hydrodynamic v2.0 model data" ID="gbr1_2.0_DatasetScan"
+	   path="gbr1_2.0_All" location="content/fx3/gbr1_2.0">
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+      <dataType>Grid</dataType>
+    </metadata>
 
+    <filter>
+      <include wildcard="*.nc"/>
+    </filter>
+  </datasetScan>
+
+  <datasetRoot path="sven" location="content/sven/" />
   <dataset name="sven" ID="svenDataset"
 	  urlPath="sven/gbr4_rivers_simple_2017-10.nc">
     <metadata inherited="true">
@@ -30,25 +40,6 @@
       <dataType>Grid</dataType>
     </metadata>
   </dataset>
-
-  <dataset name="Test Single Dataset" ID="testDataset"
-           serviceName="dap"  urlPath="test/testData.nc" dataType="Grid"/>
-
-  <dataset name="Test Single Dataset 2" ID="testDataset2"
-           serviceName="odap" urlPath="test/testData2.grib2" dataType="Grid"/>
-
-  <datasetScan name="Test all files in a directory" ID="testDatasetScan"
-               path="testAll" location="content/testdata">
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-
-    <filter>
-      <include wildcard="*eta_211.nc"/>
-      <include wildcard="testgrid*.nc"/>
-    </filter>
-  </datasetScan>
 
   <catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/>
 </catalog>

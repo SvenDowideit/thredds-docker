@@ -25,6 +25,7 @@ services:
       - /home/debian/src/thredds-docker/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
       - /home/debian/src/thredds-docker/thredds:/usr/local/tomcat/content/thredds
       - /home/debian/src/thredds-docker/data/sven:/usr/local/tomcat/content/thredds/public/sven
+      - /home/debian/src/thredds-docker/data/fx3:/usr/local/tomcat/content/thredds/public/fx3
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
 
