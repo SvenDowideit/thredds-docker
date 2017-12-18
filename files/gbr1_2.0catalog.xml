@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog name="GBR1 2.0 catalog" version="1.0.1"
-	    xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
-	        xmlns:xlink="http://www.w3.org/1999/xlink">
+			xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
 
-  <service name="all" base="" serviceType="compound">
-    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
-    <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
-    <service name="http" serviceType="HTTPServer" base="/thredds/fileServer/" />
-    <service name="wcs" serviceType="WCS" base="/thredds/wcs/" />
-    <service name="wms" serviceType="WMS" base="/thredds/wms/" />
-    <service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/" />
-  </service>
+	<service name="all" base="" serviceType="compound">
+		<service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
+		<service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
+		<service name="http" serviceType="HTTPServer" base="/thredds/fileServer/" />
+		<service name="wcs" serviceType="WCS" base="/thredds/wcs/" />
+		<service name="wms" serviceType="WMS" base="/thredds/wms/" />
+		<service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/" />
+	</service>
 
-  <service name="dap" base="" serviceType="compound">
-    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
-    <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
-  </service>
+	<service name="dap" base="" serviceType="compound">
+		<service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
+		<service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
+	</service>
 
-  <datasetScan name="eReefs GBR1 Hydrodynamic v2.0 model data" 
-	ID="gbr1_2.0_DatasetScan"
-	path="gbr1_2.0_All"
-  	location="content/fx3/gbr1_2.0">
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
+	<datasetScan name="eReefs GBR1 Hydrodynamic v2.0 model data" 
+			ID="gbr1_2.0_DatasetScan"
+			path="gbr1_2.0_All"
+			location="content/fx3/gbr1_2.0">
+		<metadata inherited="true">
+			<serviceName>all</serviceName>
+			<dataType>Grid</dataType>
+		</metadata>
 
-    <filter>
-      <include wildcard="*.nc"/>
-    </filter>
+		<filter>
+			<include wildcard="*.nc"/>
+		</filter>
+		<addProxies>
+			<simpleLatest/>
+		</addProxies>
 
-    <namer>
-	    <regExpOnName regExp="gbr1_simple_(.*)\.nc" replaceString="eReefs GBR1 SHOC Model v2.0 Results for $1" />
-    </namer>
-  </datasetScan>
+		<namer>
+			<regExpOnName regExp="gbr1_simple_(([0-9]{4})-([0-9]{2})-([0-9]{2}))\.nc" replaceString="eReefs GBR1 SHOC Model v2.0 Results for $1" />
+		</namer>
+	<addTimeCoverage
+		datasetNameMatchPattern="gbr1_simple_([0-9]{4})-([0-9]{2})-([0-9]{2})\w*.nc$"
+		startTimeSubstitutionPattern="$1-$2-$3T00:00:00+10"
+		duration="24 hours"/>	  
+	</datasetScan>
 
 </catalog>
