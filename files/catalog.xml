@@ -20,16 +20,6 @@
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
   </service>
 
-
-  <datasetRoot path="sven" location="content/sven/" />
-  <dataset name="sven" ID="svenDataset"
-	  urlPath="sven/gbr4_rivers_simple_2017-10.nc">
-    <metadata inherited="true">
-      <serviceName>all</serviceName>
-      <dataType>Grid</dataType>
-    </metadata>
-  </dataset>
-
   <catalogRef xlink:title="eReefs GBR1 Hydrodynamic v2.0 model data" xlink:href="gbr1_2.0catalog.xml" name=""/>
   <catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/>
 </catalog>

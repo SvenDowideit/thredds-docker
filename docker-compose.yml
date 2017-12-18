@@ -16,15 +16,15 @@ services:
       - "8443:8443"
     container_name: thredds
     volumes:
-      - /home/debian/src/thredds-docker/tomcat/logs/:/usr/local/tomcat/logs/
-      - /home/debian/src/thredds-docker/thredds/logs/:/usr/local/tomcat/content/thredds/logs/
+      - /home/debian/src/thredds-docker/tomcat-logs/:/usr/local/tomcat/logs/
+      - /home/debian/src/thredds-docker/thredds-logs/:/usr/local/tomcat/content/thredds/logs/
         #      - /home/debian/src/thredds-docker/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - /home/debian/src/thredds-docker/files/threddsConfig.xml:/usr/local/tomcat/content/thredds/threddsConfig.xml
       - /home/debian/src/thredds-docker/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
       - /home/debian/src/thredds-docker/files/catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
       - /home/debian/src/thredds-docker/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
       - /home/debian/src/thredds-docker/files/gbr1_2.0catalog.xml:/usr/local/tomcat/content/thredds/gbr1_2.0catalog.xml
-      - /home/debian/src/thredds-docker/thredds:/usr/local/tomcat/content/thredds
+        #      - /home/debian/src/thredds-docker/thredds:/usr/local/tomcat/content/thredds
       - /home/debian/src/thredds-docker/data/sven:/usr/local/tomcat/content/thredds/public/sven
       - /home/debian/src/thredds-docker/data/fx3:/usr/local/tomcat/content/thredds/public/fx3
     env_file:
