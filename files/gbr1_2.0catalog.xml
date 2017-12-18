@@ -29,6 +29,10 @@
     <filter>
       <include wildcard="*.nc"/>
     </filter>
+
+    <namer>
+	    <regExpOnName regExp="gbr1_simple_(.*)\.nc" replaceString="eReefs GBR1 SHOC Model v2.0 Results for $1" />
+    </namer>
   </datasetScan>
 
 </catalog>
