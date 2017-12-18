@@ -10,6 +10,7 @@
 		<service name="wcs" serviceType="WCS" base="/thredds/wcs/" />
 		<service name="wms" serviceType="WMS" base="/thredds/wms/" />
 		<service name="ncss" serviceType="NetcdfSubset" base="/thredds/ncss/" />
+		<service name="latest" serviceType="Resolver" base="" />
 	</service>
 
 	<service name="dap" base="" serviceType="compound">
@@ -21,10 +22,29 @@
 			ID="gbr1_2.0_DatasetScan"
 			path="gbr1_2.0_All"
 			location="content/fx3/gbr1_2.0">
-		<metadata inherited="true">
-			<serviceName>all</serviceName>
-			<dataType>Grid</dataType>
-		</metadata>
+<metadata inherited="true">
+	<serviceName>all</serviceName>
+	<authority>au.csiro</authority>
+	<dataType>GRID</dataType>
+	<documentation xlink:href="/thredds/fileServer/licenses/fx3_readme.txt" xlink:title="README"/>
+	<documentation type="rights" xlink:href="/thredds/fileServer/licenses/fx3_licence.txt" xlink:title="Licence"/>
+	<documentation type="history">
+		http://www.emg.cmar.csiro.au/www/en/emg/software/EMS/hydrodynamics.html
+	</documentation>
+	<documentation type="summary">
+		Files from the GBR1 dataset from the eReefs project. See README linked above for further details.
+	</documentation>
+	<creator>
+		<name>
+			Coastal Environmental Modelling, CSIRO Oceans and Atmosphere
+		</name>
+		<contact url="http://www.emg.cmar.csiro.au" email="cmar-hobart@csiro.au"/>
+	</creator>
+	<publisher>
+		<name>Sven's testing Thredds</name>
+		<contact url="http://nci.org.au" email="sven.dowideit@csiro.au"/>
+	</publisher>
+</metadata>
 
 		<filter>
 			<include wildcard="*.nc"/>
