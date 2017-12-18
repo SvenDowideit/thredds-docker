@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog name="THREDDS Server Default Catalog : You must change this to fit your server!"
-         xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
-         xmlns:xlink="http://www.w3.org/1999/xlink"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0
-           http://www.unidata.ucar.edu/schemas/thredds/InvCatalog.1.0.6.xsd">
+<catalog name="GBR1 2.0 catalog" version="1.0.1"
+	    xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
+	        xmlns:xlink="http://www.w3.org/1999/xlink">
 
   <service name="all" base="" serviceType="compound">
     <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/" />
@@ -20,16 +17,18 @@
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
   </service>
 
-
-  <datasetRoot path="sven" location="content/sven/" />
-  <dataset name="sven" ID="svenDataset"
-	  urlPath="sven/gbr4_rivers_simple_2017-10.nc">
+  <datasetScan name="eReefs GBR1 Hydrodynamic v2.0 model data" 
+	ID="gbr1_2.0_DatasetScan"
+	path="gbr1_2.0_All"
+  	location="content/fx3/gbr1_2.0">
     <metadata inherited="true">
       <serviceName>all</serviceName>
       <dataType>Grid</dataType>
     </metadata>
-  </dataset>
 
-  <catalogRef xlink:title="eReefs GBR1 Hydrodynamic v2.0 model data" xlink:href="gbr1_2.0catalog.xml" name=""/>
-  <catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/>
+    <filter>
+      <include wildcard="*.nc"/>
+    </filter>
+  </datasetScan>
+
 </catalog>
