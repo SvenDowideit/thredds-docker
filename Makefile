@@ -12,3 +12,9 @@ dev:
 
 shell:
 	docker exec -it thredds bash
+
+cataloginit:
+	 docker exec -it thredds cat /usr/local/tomcat/content/thredds/logs/catalogInit.log
+
+slog:
+	 docker exec -it thredds cat /usr/local/tomcat/content/thredds/logs/threddsServlet.log

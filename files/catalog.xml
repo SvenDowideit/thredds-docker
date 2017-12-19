@@ -21,5 +21,4 @@
   </service>
 
   <catalogRef xlink:title="fx3" xlink:href="gbr1_2.0catalog.xml" name="eReefs GBR Model Data"/>
-  <catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/>
 </catalog>
