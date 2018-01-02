@@ -151,4 +151,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 CMD ["catalina.sh", "run"]
 
 HEALTHCHECK --interval=60s --timeout=3s \
-	CMD curl --fail 'http://localhost:8080/thredds/catalog.html' || exit 1
+	CMD sh -c 'exec 3<>/dev/tcp/127.0.0.1/8080; echo -e "GET /thredds/catalog/catalog.html HTTP/1.1\r\nHost: healthcheck\r\nConnection: close\r\n\r\n" >&3; cat <&3 | grep "200 OK"'

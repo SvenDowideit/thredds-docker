@@ -16,17 +16,19 @@ services:
       - "8443:8443"
     container_name: thredds
     volumes:
-      - /home/debian/src/thredds-docker/tomcat-logs/:/usr/local/tomcat/logs/
-      - /home/debian/src/thredds-docker/thredds-logs/:/usr/local/tomcat/content/thredds/logs/
-        #      - /home/debian/src/thredds-docker/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-      - /home/debian/src/thredds-docker/files/threddsConfig.xml:/usr/local/tomcat/content/thredds/threddsConfig.xml
-      - /home/debian/src/thredds-docker/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
-      - /home/debian/src/thredds-docker/files/catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
-      - /home/debian/src/thredds-docker/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
-      - /home/debian/src/thredds-docker/files/gbr1_2.0catalog.xml:/usr/local/tomcat/content/thredds/gbr1_2.0catalog.xml
-        #      - /home/debian/src/thredds-docker/thredds:/usr/local/tomcat/content/thredds
-      - /home/debian/src/thredds-docker/data/sven:/usr/local/tomcat/content/thredds/public/sven
-      - /home/debian/src/thredds-docker/data/fx3:/usr/local/tomcat/content/thredds/public/fx3
+            #- ${PWD}/tomcat-logs/:/usr/local/tomcat/logs/
+            #- ${PWD}/thredds-logs/:/usr/local/tomcat/content/thredds/logs/
+        #      - /${PWD}/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ${PWD}/files/threddsConfig.xml:/usr/local/tomcat/content/thredds/threddsConfig.xml
+      - ${PWD}/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
+      - ${PWD}/files/catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
+      - ${PWD}/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
+      - ${PWD}/files/gbr1_2.0catalog.xml:/usr/local/tomcat/content/thredds/gbr1_2.0catalog.xml
+        #      - /${PWD}/thredds:/usr/local/tomcat/content/thredds
+      - ${PWD}/data:/usr/local/tomcat/content/thredds/public
+        #- ${PWD}/data/fx3:/usr/local/tomcat/content/thredds/public/fx3
+      - /OSM/MEL/OA_EREEFS_DEV1/work/fx3/:/usr/local/tomcat/content/thredds/public/fx3
+      - /OSM/MEL/OA_EREEFS_DEV1/scratch/tmp:/usr/local/tomcat/content/thredds/cache
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
 
@@ -40,10 +42,10 @@ services:
     image: unidata/tdm-docker:4.6
     container_name: tdm
     volumes:
-      - /home/debian/src/thredds-docker/thredds/directory:/usr/local/tomcat/content/thredds
-      - /home/debian/src/thredds-docker/data/tdm:/home/debian/src/thredds-docker/data/tdm
+      - /${PWD}/thredds/directory:/usr/local/tomcat/content/thredds
+      - /${PWD}/data/tdm:/${PWD}/data/tdm
       # TDM logging non-configurable until 5.0 so you'll need tdm.sh and
       # tdm.jar if you want to log outside the container :-(
-      - /home/debian/src/thredds-docker/tdm/logs:/usr/local/tomcat/content/tdm/
+      - /${PWD}/tdm/logs:/usr/local/tomcat/content/tdm/
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"

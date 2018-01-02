@@ -13,6 +13,12 @@ dev:
 shell:
 	docker exec -it thredds bash
 
+update-data:
+	cd data; ./update-data.sh
+
+check-data:
+	docker exec -it thredds sh -c "cd /usr/local/tomcat/content/thredds/public; ./check-data.sh"
+
 cataloginit:
 	 docker exec -it thredds cat /usr/local/tomcat/content/thredds/logs/catalogInit.log
 
