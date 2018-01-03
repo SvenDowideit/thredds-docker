@@ -2,9 +2,8 @@
 # Dockerfile for TDS
 ###
 
-FROM unidata/tomcat-docker:8
-
-MAINTAINER Unidata
+#FROM unidata/tomcat-docker:8
+FROM onaci/tomcat-docker:dynamic-uid
 
 ###
 # Usual maintenance
