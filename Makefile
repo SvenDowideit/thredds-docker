@@ -26,3 +26,8 @@ cataloginit:
 
 slog:
 	 docker exec -it thredds cat /usr/local/tomcat/content/thredds/logs/threddsServlet.log
+
+make-volume-dirs:
+	mkdir -p /OSM/MEL/OA_EREEFS_DEV1/scratch/logs
+	mkdir -p /OSM/MEL/OA_EREEFS_DEV1/scratch/tomcat
+	mkdir -p /OSM/MEL/OA_EREEFS_DEV1/scratch/tmp
