@@ -23,7 +23,7 @@
 		ID="gbr1_2.0_DatasetScan_agg"
 		urlPath="gbr1_2.0" >
 		<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
-			<aggregation dimName="time" type="joinExisting">
+			<aggregation dimName="time" type="joinExisting" recheckEvery="4 sec"  >
 				<scan location="/usr/local/tomcat/content/thredds/public/fx3/gbr1_2.0" suffix=".nc" subdirs="false"/>
 			</aggregation>
 		</netcdf>
