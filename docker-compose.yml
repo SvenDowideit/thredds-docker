@@ -31,8 +31,8 @@ services:
       # logs
             #- ${PWD}/tomcat-logs/:/usr/local/tomcat/logs/
             #- ${PWD}/thredds-logs/:/usr/local/tomcat/content/thredds/logs/
-      - /OSM/MEL/OA_EREEFS_DEV1/scratch/logs/tomcat:/usr/local/tomcat/logs/
       - /OSM/MEL/OA_EREEFS_DEV1/scratch/logs/:/usr/local/tomcat/content/thredds/logs/
+      - /OSM/MEL/OA_EREEFS_DEV1/scratch/tomcat:/usr/local/tomcat/logs/
     env_file:
       - "compose${THREDDS_COMPOSE_ENV_LOCAL}.env"
 
