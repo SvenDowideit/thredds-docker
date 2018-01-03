@@ -18,6 +18,8 @@ services:
     volumes:
             #- ${PWD}/tomcat-logs/:/usr/local/tomcat/logs/
             #- ${PWD}/thredds-logs/:/usr/local/tomcat/content/thredds/logs/
+            #- /OSM/MEL/OA_EREEFS_DEV1/scratch/tmp/tomcat:/usr/local/tomcat/logs/
+      - /OSM/MEL/OA_EREEFS_DEV1/scratch/logs/:/usr/local/tomcat/content/thredds/logs/
         #      - /${PWD}/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ${PWD}/files/threddsConfig.xml:/usr/local/tomcat/content/thredds/threddsConfig.xml
       - ${PWD}/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
