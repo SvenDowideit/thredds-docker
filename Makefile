@@ -1,5 +1,7 @@
 .PHONY: run shell
 
+build:
+	docker build -t unidata/thredds-docker:4.6.11 .
 
 run:
 	VERSION=4.6.11 docker-compose up thredds-production
