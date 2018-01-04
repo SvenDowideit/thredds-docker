@@ -21,7 +21,7 @@ services:
       - ${PWD}/files/wmsConfig.xml:/usr/local/tomcat/content/thredds/wmsConfig.xml
       - ${PWD}/files/catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
       - ${PWD}/files/enhancedCatalog.xml:/usr/local/tomcat/content/thredds/enhancedCatalog.xml
-      - ${PWD}/files/gbr1_2.0catalog.xml:/usr/local/tomcat/content/thredds/gbr1_2.0catalog.xml
+      - ${PWD}/files/catalogs/:/usr/local/tomcat/content/thredds/catalogs/
       # data files
         #      - /${PWD}/thredds:/usr/local/tomcat/content/thredds
       - ${PWD}/data:/usr/local/tomcat/content/thredds/public

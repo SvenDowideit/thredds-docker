@@ -20,5 +20,5 @@
     <service name="dap4" serviceType="DAP4" base="/thredds/dap4/" />
   </service>
 
-  <catalogRef xlink:title="fx3" xlink:href="gbr1_2.0catalog.xml" name="eReefs GBR Model Data"/>
+  <catalogRef xlink:title="eReefs GBR Model Data" xlink:href="catalogs/fx3/catalog.xml" name="eReefs GBR Model Data"/>
 </catalog>
