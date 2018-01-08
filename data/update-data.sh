@@ -12,7 +12,7 @@ function main() {
 			outputpath="${dir}/${filename}"
 			file="http://dapds00.nci.org.au/thredds/fileServer/${dir}/${filename}"
 
-			#get_netcdf_file $outputpath $file
+			get_netcdf_file $outputpath $file
 		done
 	done
 
@@ -20,7 +20,7 @@ function main() {
 	dir="fx3/gbr4_v2"
 	mkdir -p "${dir}"
 	year="2017"
-	for month in $(seq -w 12 -1 10); do
+	for month in $(seq -w 12 -1 1); do
 		filename="gbr4_simple_${year}-${month}.nc"
 
 		outputpath="${dir}/${filename}"
