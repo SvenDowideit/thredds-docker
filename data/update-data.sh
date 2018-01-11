@@ -5,7 +5,7 @@ function main() {
 	dir="fx3/gbr1_2.0"
 	mkdir -p "${dir}"
 	year="2017"
-	for month in $(seq -w 12 -1 10); do
+	for month in $(seq -w 12 -1 1); do
 		for day in $(seq -w 31 -1 1); do
 			filename="gbr1_simple_${year}-${month}-${day}.nc"
 
